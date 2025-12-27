@@ -8,6 +8,12 @@ html {
   scrollbar-gutter: stable;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
 h1,
 h2,
 h3,

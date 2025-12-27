@@ -4,6 +4,7 @@ import "../app.css";
 
 import Header from "@components/layout/Header.astro";
 import Head from "@components/layout/Head.astro";
+import Footer from "@/components/layout/Footer.astro";
 
 const { title } = Astro.props;
 ---
@@ -19,5 +20,13 @@ const { title } = Astro.props;
     <main>
       <slot />
     </main>
+
+    <Footer />
+
+    <style>
+      main {
+        flex-grow: 1;
+      }
+    </style>
   </body>
 </html>
