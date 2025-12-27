@@ -1,0 +1,39 @@
+---
+import type { MarkdownInstance } from "astro";
+import ListLink from "@components/ListLink.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { formatDate } from "@utils/formatDate";
+import type { PostFrontmatter } from "@/types";
+
+const notes = Object.values(
+  import.meta.glob<MarkdownInstance<PostFrontmatter>>("./*.md", {
+    eager: true,
+  }),
+);
+---
+
+<BaseLayout>
+  <h1>Заметки</h1>
+  {
+    !!notes.length ? (
+      <ol>
+        {notes.map(({ frontmatter, url }) => (
+          <ListLink
+            link={url}
+            title={frontmatter.title}
+            description={formatDate(frontmatter.date, "ru-RU")}
+          />
+        ))}
+      </ol>
+    ) : (
+      <p>Заметок пока нет :(</p>
+    )
+  }
+
+  <style>
+    ol {
+      list-style: none;
+      padding-left: 1rem;
+    }
+  </style>
+</BaseLayout>

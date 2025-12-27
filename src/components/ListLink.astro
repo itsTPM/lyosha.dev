@@ -1,0 +1,24 @@
+---
+const { link, title, description } = Astro.props;
+---
+
+<li>
+  <a href={link}>{title}</a>
+  <p>{description}</p>
+</li>
+
+<style>
+  li {
+    padding-left: 1rem;
+    border-left: 2px solid var(--pico-primary);
+
+    a {
+      padding: 0.75rem;
+      margin: -0.75rem;
+    }
+
+    p {
+      color: var(--pico-secondary);
+    }
+  }
+</style>

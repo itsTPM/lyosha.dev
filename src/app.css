@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "Raleway";
+  src: url("/fonts/Raleway-VariableFont_wght.subset.ttf") format("truetype");
+  font-weight: 100 900;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+h1 {
+  font-weight: 600;
+}
+
+h2 {
+  font-weight: 550;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+}

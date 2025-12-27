@@ -1,0 +1,23 @@
+---
+import "@picocss/pico/css/pico.classless.css";
+import "../app.css";
+
+import Header from "@components/layout/Header.astro";
+import Head from "@components/layout/Head.astro";
+
+const { title } = Astro.props;
+---
+
+<html lang="ru">
+  <Head>
+    <title>{title || "Lyosha.dev"}</title>
+  </Head>
+
+  <body>
+    <Header />
+
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

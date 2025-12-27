@@ -1,0 +1,25 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import { formatDate } from "@utils/formatDate";
+
+const { frontmatter } = Astro.props;
+
+const formattedDate = formatDate(frontmatter.date, "ru-RU");
+const pageTitle = `${frontmatter.title} - Lyosha.dev`;
+---
+
+<BaseLayout title={pageTitle}>
+  <h1 class="post-title">{frontmatter.title}</h1>
+  <p class="post-date">{formattedDate}</p>
+  <slot />
+
+  <style>
+    .post-title {
+      margin-bottom: 0.25rem;
+    }
+
+    .post-date {
+      color: var(--pico-secondary);
+    }
+  </style>
+</BaseLayout>
