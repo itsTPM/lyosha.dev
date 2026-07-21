@@ -9,7 +9,11 @@ const notes = Object.values(
   import.meta.glob<MarkdownInstance<PostFrontmatter>>('./notes/*.md', {
     eager: true,
   }),
-).slice(0, 3);
+)
+  .sort((a, b) => {
+    return new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime();
+  })
+  .slice(0, 3);
 ---
 
 <BaseLayout>

@@ -9,7 +9,9 @@ const notes = Object.values(
   import.meta.glob<MarkdownInstance<PostFrontmatter>>('./*.md', {
     eager: true,
   }),
-);
+).sort((a, b) => {
+  return new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime();
+});
 ---
 
 <BaseLayout>
