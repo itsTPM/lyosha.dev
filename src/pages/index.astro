@@ -1,12 +1,12 @@
 ---
-import type { MarkdownInstance } from "astro";
-import ListLink from "@components/ListLink.astro";
-import BaseLayout from "@layouts/BaseLayout.astro";
-import { formatDate } from "@utils/formatDate";
-import type { PostFrontmatter } from "@/types";
+import type { MarkdownInstance } from 'astro';
+import ListLink from '@components/ListLink.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { formatDate } from '@utils/formatDate';
+import type { PostFrontmatter } from '@/types';
 
 const notes = Object.values(
-  import.meta.glob<MarkdownInstance<PostFrontmatter>>("./notes/*.md", {
+  import.meta.glob<MarkdownInstance<PostFrontmatter>>('./notes/*.md', {
     eager: true,
   }),
 ).slice(0, 3);
@@ -19,11 +19,7 @@ const notes = Object.values(
         <h1>Последние заметки</h1>
         <ol>
           {notes.map(({ frontmatter, url }) => (
-            <ListLink
-              link={url}
-              title={frontmatter.title}
-              description={formatDate(frontmatter.date, "ru-RU")}
-            />
+            <ListLink link={url} title={frontmatter.title} description={formatDate(frontmatter.date, 'ru-RU')} />
           ))}
         </ol>
         <a href="/notes">показать всё</a>

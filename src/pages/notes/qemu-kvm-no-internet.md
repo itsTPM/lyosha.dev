@@ -1,7 +1,7 @@
 ---
-layout: "@layouts/BlogPostLayout.astro"
-title: "Нет интернета в виртуальных машинах QEMU/KVM"
-date: "2025-12-27"
+layout: '@layouts/BlogPostLayout.astro'
+title: 'Нет интернета в виртуальных машинах QEMU/KVM'
+date: '2025-12-27'
 ---
 
 ## На всякий случай
@@ -11,6 +11,7 @@ date: "2025-12-27"
 ```bash
 $ sudo virsh net-list --all
 ```
+
 ```bash
  Name      State    Autostart   Persistent
 --------------------------------------------
@@ -25,9 +26,9 @@ $ sudo virsh net-start default
 
 ## iptables-nft и UFW
 
-*libvirt >=10.4.0, UFW, виртуальная NAT-сеть*
+_libvirt >=10.4.0, UFW, виртуальная NAT-сеть_
 
-Начиная с [libvirt v10.4.0 (2024-06-03)](https://gitlab.com/libvirt/libvirt/-/raw/master/NEWS.rst#:~:text=v10.4.0%20(2024%2D06%2D03)), если в системе присутствует nftables, правила по умолчанию добавляются через него заместо iptables.
+Начиная с [libvirt v10.4.0 (2024-06-03)](<https://gitlab.com/libvirt/libvirt/-/raw/master/NEWS.rst#:~:text=v10.4.0%20(2024%2D06%2D03)>), если в системе присутствует nftables, правила по умолчанию добавляются через него заместо iptables.
 
 В современных системах обычно установлен iptables-nft, который реализует API традиционного iptables, но под капотом использует nftables. UFW не умеет использовать nftables напрямую, поэтому использует iptables-nft для управления правилами если бэкендом является nftables.
 

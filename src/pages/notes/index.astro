@@ -1,12 +1,12 @@
 ---
-import type { MarkdownInstance } from "astro";
-import ListLink from "@components/ListLink.astro";
-import BaseLayout from "@layouts/BaseLayout.astro";
-import { formatDate } from "@utils/formatDate";
-import type { PostFrontmatter } from "@/types";
+import type { MarkdownInstance } from 'astro';
+import ListLink from '@components/ListLink.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { formatDate } from '@utils/formatDate';
+import type { PostFrontmatter } from '@/types';
 
 const notes = Object.values(
-  import.meta.glob<MarkdownInstance<PostFrontmatter>>("./*.md", {
+  import.meta.glob<MarkdownInstance<PostFrontmatter>>('./*.md', {
     eager: true,
   }),
 );
@@ -18,11 +18,7 @@ const notes = Object.values(
     !!notes.length ? (
       <ol>
         {notes.map(({ frontmatter, url }) => (
-          <ListLink
-            link={url}
-            title={frontmatter.title}
-            description={formatDate(frontmatter.date, "ru-RU")}
-          />
+          <ListLink link={url} title={frontmatter.title} description={formatDate(frontmatter.date, 'ru-RU')} />
         ))}
       </ol>
     ) : (
